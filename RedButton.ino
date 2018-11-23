@@ -21,9 +21,8 @@ DFRobotDFPlayerMini myDFPlayer;
 volatile int isbusy = 0;
 volatile int showType = 0;
 volatile int folder = 1;
-volatile int filecount = 17;
-
-long randNumber;
+volatile int filecount = 0;
+volatile int lastsong[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 void setup() {
 
@@ -58,8 +57,8 @@ void setup() {
   myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
   myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD); 
 
-  randomSeed(1);
-
+  filecount = myDFPlayer.readFileCountsInFolder(folder);
+  delay(50);
 }
 
 void loop() {
@@ -123,18 +122,20 @@ void theaterChase(uint32_t c, uint8_t wait) {
   strip.show();
 }
 
-// this function will be called when the button was pressed 2 times in a short timeframe.
+// this function will be called when the button was pressed 1 times.
 void myClickFunction() {
-  int randomfile = 0;
-  randomfile = random(1,filecount+1);
-  myDFPlayer.playFolder(folder, randomfile);
+  lastsong[folder-1]++;
+  if(lastsong[folder-1]>filecount)
+  lastsong[folder-1] = 1;
+  
+  myDFPlayer.playFolder(folder, lastsong[folder-1]);
   showType++;
   if (showType > 13)
   showType=0;
   startShow(showType);
 } 
 
-// this function will be called when the button was pressed 1 times.
+// this function will be called when the button was pressed 2 times in a short timeframe.
 void myDoubleClickFunction() {
   
   //Go to next folder, roll over at 10th folder. Remeber first folder is numbered 1
@@ -161,7 +162,6 @@ void myDoubleClickFunction() {
   delay(50);
   strip.setPixelColor(0,0);
   strip.show();
-  randomSeed(folder^millis());
 } 
 
 // this function will be called when the button is pressed for a long time.
