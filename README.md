@@ -26,7 +26,7 @@ Upon arival of the Atiny85 Digispark the IC will use an Arduino compatible bootl
 https://www.instructables.com/id/How-to-unlock-Digispark-ATtiny85-and-convert-it-to/
 
 ## The Build
-Next is to write the actual program into the now unchained Atiny85. For this you can use the SPI interface of the Tiny. A precompiled hex (.a) file can be found inside this project.  
+Next is to write the actual program into the now unchained Atiny85. For this you can use the SPI interface of the Tiny. A precompiled hex file can be found inside this project.  
 
 Then wire everything up according to the provided schematic drawing. Of course the speaker and the tact switch inside the button housing will be used. So all you have to do is to rewire those 2 components correctly.  
 
