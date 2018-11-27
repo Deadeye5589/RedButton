@@ -45,11 +45,12 @@ The folders must be named:
 * 08  
 * 09  
 * 10  
+* 99
 
 Next you can throw any MP3 or Wave file in this folders you want to play. Since it is not possible to leave folders empty, I suggest that you simply copy your songs in each folder that you don't need too. This was the program will always find a file to play.  
 The files must be named 001 ... 255.mp3 or 001...255.wav
 
-Inside the root folder you can also store a single filed named 001.mp3 or 001.wav  
+Inside the folder no. 99 you can also store a single filed named 001.mp3 or 001.wav  
 
 ## How to use
 The Red Button has 3 functions:  
@@ -61,7 +62,7 @@ The Red Button has 3 functions:
 Will play a song from the current folder. Looping through all available songs in this folder.
 
 **Long Button Press**  
-Will always play the single file stored in the root directory of the SD card. 
+Will always play the single file stored in the directory named 99 of the SD card. 
 
 **Double Button Press**  
 Will cycle through the folders 1 ... 10 ... 1. Each time the last song you played for each folder will be stored. Upon return to this folder the next song in order will be played. The button will blink red if you change a folder. When you arrive back at folder 1 the button blinks green to indicate that you reached the first folder. 
