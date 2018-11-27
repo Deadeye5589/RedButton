@@ -65,5 +65,5 @@ Will play a song from the current folder. Looping through all available songs in
 Will always play the single file stored in the directory named 99 of the SD card. 
 
 **Double Button Press**  
-Will cycle through the folders 1 ... 10 ... 1. Each time the last song you played for each folder will be stored. Upon return to this folder the next song in order will be played. The button will blink red if you change a folder. When you arrive back at folder 1 the button blinks green to indicate that you reached the first folder. 
+Will cycle through the folders 1 ... 10 ... 1. Each time the last song you played for each folder will be stored. Upon return to this folder the next song in order will be played. The button will blink green if you change a folder. When you arrive back at folder 1 the button blinks red to indicate that you reached the first folder. 
 
