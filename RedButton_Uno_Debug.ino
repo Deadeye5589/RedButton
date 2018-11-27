@@ -10,11 +10,11 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 
 //Button Input defintion 
-OneButton button(2, HIGH);
+OneButton button(7, HIGH); //2
 const int DFPlayerBusy = 4;
 
 //Setup for the DFPlayer
-SoftwareSerial mySoftwareSerial(0, 1); // RX, TX 
+SoftwareSerial mySoftwareSerial(10, 11); // RX, TX 0 , 1
 DFRobotDFPlayerMini myDFPlayer;
 
 //Some things to remember all times
@@ -49,6 +49,13 @@ void setup() {
 
   mySoftwareSerial.begin(9600);
 
+        Serial.begin(115200);
+      
+        Serial.println();
+        Serial.println(F("DFRobot DFPlayer Mini Demo"));
+        Serial.println(F("Initializing DFPlayer ... (May take 3~5 seconds)"));
+  
+
     if (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
     while(true);
     }
@@ -69,6 +76,10 @@ void setup() {
   myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD); 
 
   delay(50);
+          Serial.println(F("Folder read completed"));
+              for(int i = 0 ; i<10 ; i++){
+              Serial.println(songcount[i]);
+              }
 }
 
 void loop() {
@@ -137,6 +148,12 @@ void myClickFunction() {
   lastsong[folder-1]++;
   if(lastsong[folder-1]>songcount[folder-1])
   lastsong[folder-1] = 1;
+
+          Serial.print(folder);
+          Serial.print(" ");
+          Serial.print(lastsong[folder-1]);
+          Serial.print(" / ");
+          Serial.println(songcount[folder-1]);
   
   myDFPlayer.playFolder(folder, lastsong[folder-1]);
   showType++;
