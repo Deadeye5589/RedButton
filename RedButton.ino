@@ -31,7 +31,6 @@ void setup() {
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
 
-
   //Setup everything we need for the button press detection, click, double click, long button press 
   // link the myClickFunction function to be called on a click event.   
   button.attachClick(myClickFunction);
@@ -47,10 +46,13 @@ void setup() {
 
   pinMode(DFPlayerBusy, INPUT);
 
+  delay(2000);
+
   mySoftwareSerial.begin(9600);
 
-    if (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
-    while(true);
+
+    while (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
+    delay(100);
     }
 
     for(int i = 1 ; i<11 ; i++){
