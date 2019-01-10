@@ -7,10 +7,10 @@ or your favourite movie quotes like "Bullshit Private Pauler"?
 ## Well here you go.  
 **What you need to buy:**
 
-* https://www.amazon.de/gp/product/B074JBGWYW/ - The Big Red Button which is this all about
-* https://www.amazon.de/gp/product/B07CRY9QTK - DFPlayer Module which plays sound from a Mini SD Card
+* https://www.amazon.de/gp/product/B074JBGWYW/ - The Big Red Button which this is all about
+* https://www.amazon.de/gp/product/B07CRY9QTK - DFPlayer Module to play sounds from a Mini SD Card
 * https://www.amazon.de/gp/product/B076KS2QDS - Digispark a small size Atiny85 Board
-* Some WS2812 LEDs to your liking - The project uses 4 LEDs
+* Some WS2812 LEDs to your liking - The project uses 4 LEDs of them
 * A 5V Power Supply with more than 500mA
 * A Mini SD Card
 
@@ -24,6 +24,8 @@ or your favourite movie quotes like "Bullshit Private Pauler"?
 ## First things first  
 Upon arival of the Atiny85 Digispark the IC will use an Arduino compatible bootloader. Which reduces the useable memory size. So we need to get rid of it using High Voltage Programming, following this tutorial:  
 https://www.instructables.com/id/How-to-unlock-Digispark-ATtiny85-and-convert-it-to/
+
+You proably want to switch the 5V supply also with a transistor and not through the port pin as the tutorial indicates. The rise time will be slower which might lead to a violation of the timing requirements between 5V and 12V. 
 
 ## The Build
 Next is to write the actual program into the now unchained Atiny85. For this you can use the SPI interface of the Tiny. A precompiled hex file can be found inside this project.  
@@ -47,10 +49,10 @@ The folders must be named:
 * 10  
 * 99
 
-Next you can throw any MP3 or Wave file in this folders you want to play. Since it is not possible to leave folders empty, I suggest that you simply copy your songs in each folder that you don't need too. This was the program will always find a file to play.  
+Next you can throw any MP3 or Wave file in those folders you want to play. Since it is not possible to leave folders empty, I suggest that you simply copy your songs in each folder that you don't need. This was the program will always find a file to play.  
 The files must be named 001 ... 255.mp3 or 001...255.wav
 
-Inside the folder no. 99 you can also store a single filed named 001.mp3 or 001.wav  
+Inside folder no. 99 you can also store a single filed named 001.mp3 or 001.wav  
 
 ## How to use
 The Red Button has 3 functions:  
