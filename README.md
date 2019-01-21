@@ -28,7 +28,7 @@ This is the second release of the Red Button Project. The controller was upgrade
 If you still want to go with the V1, you can find all the information inside the V1 folder. But for now let's concentrate on the V2 build. 
 
 ## The Build
-You can find a precompiled Hex file for the Nano inside the V2 folder. Simply upload this file through the Arduino environment. The program will automatically format the EEPROM for wear leveling on the first run.  
+You can find a precompiled Hex file for the Nano inside the V2 folder. Simply upload this file by using [Xloader](http://www.hobbytronics.co.uk/arduino-xloader). The program will automatically format the EEPROM for wear leveling on the first run.  
 
 Then wire everything up according to the provided schematic drawing. Of course the speaker and the tact switch inside the button housing will be used. So all you have to do is to rewire those 2 components correctly.  
 
