@@ -9,7 +9,8 @@ or your favourite movie quotes like "Bullshit Private Pauler"?
 
 * https://www.amazon.de/gp/product/B074JBGWYW/ - The Big Red Button which this is all about
 * https://www.amazon.de/gp/product/B07CRY9QTK - DFPlayer Module to play sounds from a Mini SD Card
-* https://www.amazon.de/gp/product/B076KS2QDS - Digispark a small size Atiny85 Board
+* https://www.amazon.de/gp/product/B01LWSJBTD - Arduino Nano
+* https://www.amazon.de/gp/product/B076KS2QDS - Only needed for V1 of the project instead of the Nano
 * Some WS2812 LEDs to your liking - The project uses 4 LEDs of them
 * A 5V Power Supply with more than 500mA
 * A Mini SD Card
@@ -22,13 +23,12 @@ or your favourite movie quotes like "Bullshit Private Pauler"?
 * 12V Power Supply
 
 ## First things first  
-Upon arival of the Atiny85 Digispark the IC will use an Arduino compatible bootloader. Which reduces the useable memory size. So we need to get rid of it using High Voltage Programming, following this tutorial:  
-https://www.instructables.com/id/How-to-unlock-Digispark-ATtiny85-and-convert-it-to/
+This is the second release of the Red Button Project. The controller was upgraded from an Attiny85 to an Atmega328. This way it is now possible to store the last played song and folder into the EEPRPOM without running out of SRAM for the memory gobbeling Neopixel library. Therefore we can also skip the jail breaking of the Digistump module and maybe include some more features in the future. 
 
-You proably want to switch the 5V supply also with a transistor and not through the port pin as the tutorial indicates. The rise time will be slower which might lead to a violation of the timing requirements between 5V and 12V. 
+If you still want to go with the V1, you can find all the information inside the V1 folder. But for now let's concentrate on the V2 build. 
 
 ## The Build
-Next is to write the actual program into the now unchained Atiny85. For this you can use the SPI interface of the Tiny. A precompiled hex file can be found inside this project.  
+You can find a precompiled Hex file for the Nano inside the V2 folder. Simply upload this file through the Arduino environment. The program will automatically format the EEPROM for wear leveling on the first run.  
 
 Then wire everything up according to the provided schematic drawing. Of course the speaker and the tact switch inside the button housing will be used. So all you have to do is to rewire those 2 components correctly.  
 
